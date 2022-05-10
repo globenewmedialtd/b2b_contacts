@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - b2b_contacts
+id: b2b_contacts.field_sme
+field_name: field_sme
+entity_type: b2b_contacts
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
+

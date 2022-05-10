@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.b2b_contacts.b2b_contacts.field_sme
+  module:
+    - b2b_contacts
+id: b2b_contacts.b2b_contacts.default
+targetEntityType: b2b_contacts
+bundle: b2b_contacts
+mode: default
+content:
+  company:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_sme:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  created: true
+  group: true
+  search_api_excerpt: true
+  uid: true
+

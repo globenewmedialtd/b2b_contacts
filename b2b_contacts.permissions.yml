@@ -1,0 +1,22 @@
+administer b2b_contacts:
+  title: 'Administer b2b_contacts settings'
+  restrict access: true
+access b2b_contacts overview:
+  title: 'Access b2b_contacts overview page'
+delete b2b_contacts:
+  title: Delete b2b_contacts
+create b2b_contacts:
+  title: Create b2b_contacts
+view b2b_contacts:
+  title: View b2b_contacts
+edit b2b_contacts:
+  title: Edit b2b_contacts
+view own b2b_contacts:
+  title: View own b2b_contacts
+edit own b2b_contacts:
+  title: Edit own b2b_contacts
+delete own b2b_contacts:
+  title: Delete own b2b_contacts
+view any b2b_contacts of my group:
+  title: View any b2b_contacts of my group
+

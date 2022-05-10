@@ -1,0 +1,6 @@
+services:
+  b2b_contacts_page_access.check_access:
+    class: Drupal\b2b_contacts\Access\B2bContactsPageAccessCheck
+    tags:
+      - { name: access_check, applies_to: _b2b_contacts_page_custom_access }
+

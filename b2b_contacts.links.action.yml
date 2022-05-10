@@ -1,0 +1,5 @@
+b2b_contacts.add_form:
+  route_name: entity.b2b_contacts.add_form
+  title: 'Add B2B contacts'
+  appears_on:
+    - entity.b2b_contacts.collection

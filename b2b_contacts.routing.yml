@@ -1,0 +1,9 @@
+entity.b2b_contacts.settings:
+  path: 'admin/structure/b2b-contacts'
+  defaults:
+    _form: '\Drupal\b2b_contacts\Form\B2bContactsSettingsForm'
+    _title: 'b2b_contacts'
+  requirements:
+    _permission: 'administer b2b_contacts'
+
+

@@ -1,0 +1,7 @@
+name: B2B Contacts
+type: module
+description: 'Provides a b2b_contacts entity.'
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+configure: entity.b2b_contacts.settings

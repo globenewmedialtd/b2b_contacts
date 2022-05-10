@@ -1,0 +1,10 @@
+entity.b2b_contacts.settings:
+  title: B2B contacts
+  description: Configure a b2b_contacts entity type
+  route_name:  entity.b2b_contacts.settings
+  parent: system.admin_structure
+entity.b2b_contacts.collection:
+  title: B2B contacts
+  description: List of b2b_contactses
+  route_name: entity.b2b_contacts.collection
+  parent: system.admin_content

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.b2b_contacts.field_sme
+  module:
+    - b2b_contacts
+id: b2b_contacts.b2b_contacts.field_sme
+field_name: field_sme
+entity_type: b2b_contacts
+bundle: b2b_contacts
+label: 'Is this a small or medium enterprise?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
+

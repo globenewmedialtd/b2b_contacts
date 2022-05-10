@@ -1,0 +1,99 @@
+<?php
+
+/**
+ * @file
+ * Provides a b2b_contacts entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_theme().
+ */
+function b2b_contacts_theme() {
+  return [
+    'b2b_contacts' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for b2b_contacts templates.
+ *
+ * Default template: b2b-contacts.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the b2b_contacts information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_b2b_contacts(array &$variables) {
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+function b2b_contacts_preprocess_page__user__b2b_contacts(array &$variables) {
+
+  $variables['#attached']['library'][] = 'b2b_contacts/design';
+
+}
+
+/**
+ * Helper function to make sure the current user
+ * is in the group tm_training
+ */
+function _b2b_contacts_check_group() {
+  $group_id = FALSE;
+
+  $group_types = [];
+  // Call modules that implement the hook, and let them add items.
+  \Drupal::moduleHandler()->alter('b2b_contacts_group_types', $group_types);
+
+  $memberships = \Drupal::service('group.membership_loader')->loadByUser();
+  foreach($memberships as $membership) {
+    if ($group = $membership->getGroup()) {
+      if (in_array($group->getGroupType()->id(),$group_types)) {
+        $group_id = $group->id();
+      }
+    }
+  }
+  return $group_id;
+}
+
+
+function b2b_contacts_b2b_contacts_group_types_alter(&$group_types) {
+  $group_types['flexible_group'] = 'flexible_group';
+}
+
+
+/**
+ * Implements hook_social_user_account_header_account_links().
+ *
+ * Adds the "View my tasks" link to the user menu.
+ */
+function b2b_contacts_social_user_account_header_account_links(array $context) {
+  // We require a user for this link.
+  if (empty($context['user']) || !($context['user'] instanceof AccountInterface)) {
+    return [];
+  }
+
+  return [
+    'my_b2b_contacts' => [
+      '#type' => 'link',
+      '#attributes' => [
+        'title' => new TranslatableMarkup('View my bnb contacts'),
+      ],
+      '#title' => new TranslatableMarkup('My B2B contacts'),
+      '#weight' => 700,
+    ] + Url::fromRoute('view.b2b_contacts.page_b2b_contacts', [
+      'user' => $context['user']->id(),
+    ])->toRenderArray(),
+  ];
+
+}

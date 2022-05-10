@@ -1,0 +1,26 @@
+entity.b2b_contacts.settings:
+  title: Settings
+  route_name: entity.b2b_contacts.settings
+  base_route: entity.b2b_contacts.settings
+entity.b2b_contacts.view:
+  title: View
+  route_name: entity.b2b_contacts.canonical
+  base_route: entity.b2b_contacts.canonical
+entity.b2b_contacts.edit_form:
+  title: Edit
+  route_name: entity.b2b_contacts.edit_form
+  base_route: entity.b2b_contacts.canonical
+entity.b2b_contacts.delete_form:
+  title: Delete
+  route_name: entity.b2b_contacts.delete_form
+  base_route: entity.b2b_contacts.canonical
+  weight: 10
+entity.b2b_contacts.collection:
+  title: B2B contacts
+  route_name: entity.b2b_contacts.collection
+  base_route: system.admin_content
+  weight: 10
+b2b_contacts.my_contacts:
+  route_name: view.b2b_contacts.page_b2b_contacts
+  base_route: entity.user.canonical
+  title: my B2B Contacts
