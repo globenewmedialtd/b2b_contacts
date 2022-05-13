@@ -38,13 +38,13 @@ class B2bContactsAccessControlHandler extends EntityAccessControlHandler {
 
       case 'update':
         if ($is_owner) {
-          return AccessResult::allowedIfHasPermission($account, ['edit own b2b_contacts', 'administer b2b_contacts'], 'OR');
+          return AccessResult::allowedIfHasPermission($account, 'edit own b2b_contacts');
         }
         return AccessResult::allowedIfHasPermissions($account, ['edit b2b_contacts', 'administer b2b_contacts'], 'OR');
 
       case 'delete':
         if ($is_owner) {
-          return AccessResult::allowedIfHasPermission($account, ['delete own b2b_contacts', 'administer b2b_contacts'], 'OR');
+          return AccessResult::allowedIfHasPermission($account, 'delete own b2b_contacts');
         }
         return AccessResult::allowedIfHasPermissions($account, ['delete b2b_contacts', 'administer b2b_contacts'], 'OR');
 

@@ -156,7 +156,7 @@ class B2bContacts extends ContentEntityBase implements B2bContactsInterface {
    * {@inheritdoc}
    */
   public function setGroup(GroupInterface $group) {
-    $this->set('group', $group->id());
+    $this->set('gid', $group->id());
     return $this;
   }
 

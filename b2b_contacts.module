@@ -68,7 +68,7 @@ function _b2b_contacts_check_group() {
 
 
 function b2b_contacts_b2b_contacts_group_types_alter(&$group_types) {
-  $group_types['flexible_group'] = 'flexible_group';
+  $group_types['tm_training'] = 'tm_training';
 }
 
 
